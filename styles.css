@@ -659,20 +659,25 @@ p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #b8c5b8;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
 .contact-info i {
-    color: #2d5a27;
+    color: #ffffff;
     width: 20px;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #2d5a27;
-    color: #b8c5b8;
+/* Ensure footer text is visible - override any conflicting styles */
+.footer .footer-section p,
+.footer .footer-bottom p,
+.footer .contact-info p {
+    color: #ffffff !important;
+}
+
+.footer .logo,
+.footer .logo span {
+    color: #ffffff !important;
 }
 
 /* Responsive Design */
@@ -1344,21 +1349,22 @@ input:focus, textarea:focus {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     z-index: 2;
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    color: var(--text-dark);
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.hero-content,
+.hero-image {
+    align-self: flex-start;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.hero-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .hero-content p {
@@ -1673,7 +1679,7 @@ input:focus, textarea:focus {
 }
 
 .footer-section a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 1);
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
